@@ -1,0 +1,40 @@
+MODERN PERL - notes
+===================
+
+Names / Identifiers
+-------------------
+
+  (variable names, function names, package names, etc...)
+
+  RULES:
+
+  1) cannot have spaces
+  2) cannot start with a number
+  3) cannot have symbols that are not alpha-numeric
+
+  - note: just follow good variable naming practices.
+
+Variable Names
+--------------
+
+  variable names in perl are always preceded by a sigil(symbol) which indicates the type of the variable's value.  There are 3 types:
+
+  1) Scalar : my $scalar
+  2) Array : my @array
+  3) Hash : my %hash
+
+  - note: it is possible to declare variables of the same name, but with different types, ex: $teams & @teams.  Perl will not get confused by this, but humans will, so it is best to avoid this in practice.
+
+Variables
+---------
+
+  Definition: a variable is just a storage location for a value.
+
+Variable Scope
+--------------
+
+  Ability to access a variable within perl will depend on the variable's scope.   a variable defined within the file has global scope.  a variable defined within a code block: {} is only accessible within that code block.
+
+
+
+Scalars, Arrays, Hashes
