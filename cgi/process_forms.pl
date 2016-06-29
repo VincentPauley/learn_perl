@@ -18,20 +18,25 @@ print foreach (
   "CGI: $CGI::VERSION\n"
 );
 
+# create a reference to the hash args
+my $q = CGI::Vars();
 
-# this is how you print a single environment var, they are predefined in $ENV
-print "Server Software: $ENV{SERVER_SOFTWARE}";
+# access specific fields from the hash (using arrow syntax)
+my $user = $q->{user};
+my $email = $q->{email};
 
-# captures form values submitted via post request
-my $q = CGI::Vars();# this puts query string into a hash
-print "\nCGI Values:\n===============\n";
-foreach my $k (sort keys %$q) {
-  print "$k [$q->{$k}]\n";
-}
+print "\nForm Data:\n=========\n";
+print "User: $user\n";
+print "Email: $email\n\n";
+
+
+
 
 print "Environment Variables:\n===============\n";
 foreach my $k (sort keys %ENV) {
   print "$k [$ENV{$k}]\n";
 }
 
-# so much learning
+# keep in mind that if you use GET to submit the form, the query string will be in the environment variable: QUERY_STRING, via: ?varname=value&varname2=value
+
+# the CGI::Vars() library is taking the post request and putting it into the hash for you
